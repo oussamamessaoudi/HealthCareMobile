@@ -3,7 +3,7 @@ import i18n from 'i18n-js';
 import memoize from 'lodash.memoize'; // Use for caching/memoize for better performance
 
 import {I18nManager} from 'react-native';
-interface ILanaguagePreference {
+interface ILanguagePreference {
   languageTag: string;
   isRTL: boolean;
 }
@@ -21,7 +21,7 @@ export const translate = memoize(
 const fallback = {languageTag: 'en', isRTL: false};
 
 export const setI18nConfig: (
-  languagePreference?: ILanaguagePreference,
+  languagePreference?: ILanguagePreference,
 ) => void = languagePreference => {
   // fallback if no available language fits
 

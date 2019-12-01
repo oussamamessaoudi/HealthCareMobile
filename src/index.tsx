@@ -1,8 +1,17 @@
-import {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import App from './App';
-import {setI18nConfig} from './translations';
+import Controller from './controller';
+import SplashScreen from 'react-native-splash-screen';
+import {setI18nConfig} from './utils/translations';
 
 export default () => {
   useMemo(() => setI18nConfig(), []);
-  return App();
+  useEffect(() => {
+    console.log('controller initialed');
+    Controller.create({urls: {content: ''}}).then(() => {
+      console.log('controller created');
+      SplashScreen.hide();
+    });
+  }, []);
+  return <App />;
 };
