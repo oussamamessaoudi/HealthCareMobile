@@ -2,7 +2,7 @@ import React, {useEffect, useMemo} from 'react';
 import App from './App';
 import Controller from './controller';
 import SplashScreen from 'react-native-splash-screen';
-import {setI18nConfig} from './utils/translations';
+import {setI18nConfig} from './res/strings';
 
 export default () => {
   useMemo(() => setI18nConfig(), []);

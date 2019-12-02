@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet, Text} from 'react-native';
-import {translate} from './utils/translations';
+import {translate} from './res/strings';
 
 const App = () => {
   return (
