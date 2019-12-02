@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 
-import R from '../../res';
+import {Images, Colors, Strings} from '../../res';
 
 interface IProps {
   children?: React.ReactNode;
@@ -20,8 +20,10 @@ const LayoutPublic = ({children}: IProps) => {
     <SafeAreaView style={styles.root}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.header}>
-        <Image source={R.images.logo} style={styles.logo} />
-        <Text style={styles.appName}>{R.translate('layout.display_name')}</Text>
+        <Image source={Images.logo} style={styles.logo} />
+        <Text style={styles.appName}>
+          {Strings.translate('layout.display_name')}
+        </Text>
       </View>
       <View style={styles.container}>{children}</View>
     </SafeAreaView>
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
   },
   appName: {
     textAlign: 'center',
-    color: R.colors.PRIMARY_TEXT,
+    color: Colors.PRIMARY_TEXT,
     fontSize: moderateScale(13),
     paddingLeft: scale(5),
     fontFamily: 'Montserrat-SemiBold',
