@@ -6,6 +6,7 @@ import {setI18nConfig} from './utils/translations';
 
 export default () => {
   useMemo(() => setI18nConfig(), []);
+
   useEffect(() => {
     console.log('controller initialed');
     Controller.create({urls: {content: ''}}).then(() => {
@@ -13,5 +14,6 @@ export default () => {
       SplashScreen.hide();
     });
   }, []);
+
   return <App />;
 };

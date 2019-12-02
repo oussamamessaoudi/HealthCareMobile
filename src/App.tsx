@@ -1,10 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, StatusBar, StyleSheet, Text} from 'react-native';
 import {translate} from './utils/translations';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle="dark-content" />
       <Text style={styles.value}>{translate('hello')}</Text>
     </SafeAreaView>
   );

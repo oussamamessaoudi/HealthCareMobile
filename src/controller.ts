@@ -15,6 +15,6 @@ export default class Controller implements IController {
 
   public static create(config: IConfig): Promise<IController> {
     const controller = new Controller(config);
-    return new Promise(resolve => setTimeout(() => resolve(controller), 1000));
+    return new Promise(resolve => setTimeout(() => resolve(controller), 3000));
   }
 }
