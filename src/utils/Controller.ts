@@ -20,6 +20,7 @@ export default class Controller implements IController {
           title: router.displayName,
           headerShown : router.showHeader,
           headerBackTitle: null,
+
         })};
         return previousValue
       },

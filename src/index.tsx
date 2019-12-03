@@ -21,19 +21,14 @@ export default () => {
     });
   }, []);
 
-  const AppNavigator = useMemo(() => {
+  const AppContainer: any = useMemo(() => {
     if (!controller) {
       return;
     }
-    return createStackNavigator(controller.screens, defaultValueRouter);
-  }, [controller]);
-
-  const AppContainer = useMemo(() => {
-    if (!AppNavigator) {
-      return;
-    }
+    const {screens} = controller;
+    const AppNavigator = createStackNavigator(screens, defaultValueRouter);
     return createAppContainer(AppNavigator);
-  }, [AppNavigator]);
+  }, [controller]);
 
   if (!controller) {
     return null;
@@ -42,7 +37,7 @@ export default () => {
   return (
     <ControllerContext.Provider value={controller}>
       <AppContainer
-        ref={nav => {
+        ref={(nav: any) => {
           controller.setNavigator(nav);
         }}
       />

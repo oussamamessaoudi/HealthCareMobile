@@ -2,7 +2,6 @@ import {Colors} from '../res';
 import {Login} from '../screens/Login';
 import {Marketing} from '../screens/Marketing';
 import {IRouters} from './models';
-import {verticalScale} from 'react-native-size-matters';
 
 export const Routers: IRouters = {
   initialScreen: 'marketing',
