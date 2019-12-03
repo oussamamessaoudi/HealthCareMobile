@@ -1,3 +1,2 @@
-import LayoutPublic from './LayoutPublic1';
-
-export {LayoutPublic};
+export {default as LayoutPublic} from './LayoutPublic1';
+export {default as LayoutWithHeader} from './LayoutWithHeader1';

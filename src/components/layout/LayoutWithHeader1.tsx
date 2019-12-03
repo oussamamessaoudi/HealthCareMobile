@@ -1,0 +1,36 @@
+import React from 'react'
+import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
+
+import {scale} from 'react-native-size-matters'
+
+import {Colors} from '../../res'
+
+interface IProps {
+  children?: React.ReactNode
+}
+
+const LayoutPublic = ({children}: IProps) => {
+  return (
+    <SafeAreaView style={styles.root}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={Colors.PRIMARY_DARK}
+      />
+      <View style={styles.container}>{children}</View>
+    </SafeAreaView>
+  )
+}
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    paddingHorizontal: scale(20),
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+})
+
+export default LayoutPublic;

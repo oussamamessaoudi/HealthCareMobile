@@ -1,11 +1,12 @@
 import React, {useEffect, useMemo, useState} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import Controller from './utils/Controller';
-import SplashScreen from 'react-native-splash-screen';
-import {IController} from './utils/models';
 import {setI18nConfig} from './res/strings';
 import {ControllerContext} from './utils/Context';
+import Controller from './utils/Controller';
+import {IController} from './utils/models';
+import {defaultValueRouter} from './utils/Routers';
 
 export default () => {
   useMemo(() => setI18nConfig(), []);
@@ -20,12 +21,23 @@ export default () => {
     });
   }, []);
 
+  const AppNavigator = useMemo(() => {
+    if (!controller) {
+      return;
+    }
+    return createStackNavigator(controller.screens, defaultValueRouter);
+  }, [controller]);
+
+  const AppContainer = useMemo(() => {
+    if (!AppNavigator) {
+      return;
+    }
+    return createAppContainer(AppNavigator);
+  }, [AppNavigator]);
+
   if (!controller) {
     return null;
   }
-  const AppNavigator = createStackNavigator(controller.screens);
-
-  const AppContainer = createAppContainer(AppNavigator);
 
   return (
     <ControllerContext.Provider value={controller}>

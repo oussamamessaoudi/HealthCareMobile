@@ -25,5 +25,9 @@ export interface IRouters {
   screens: IScreens;
 }
 export interface IScreens {
-  [name: string]: object;
+  [name: string]: {
+    screen: any,
+    displayName: string,
+    showHeader : boolean,
+  };
 }
