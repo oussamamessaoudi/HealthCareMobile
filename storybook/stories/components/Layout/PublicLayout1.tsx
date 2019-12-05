@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
-import {LayoutPublic} from '../../../../src/components/Layout';
+import {LayoutPublic} from '../../../../src/components/Layout/LayoutPublic1';
 import {storiesOf} from '@storybook/react-native';
 
 storiesOf('PublicLayout1').add('Without children', () => (
