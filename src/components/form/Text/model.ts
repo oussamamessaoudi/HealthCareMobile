@@ -4,6 +4,7 @@ export interface IProps {
   type?: ETextType;
   size?: ESize;
   style?: React.ReactNode;
+  numberOfLines?: number;
   children: any;
 }
 
@@ -12,6 +13,7 @@ export enum ETextType {
   SECONDARY,
 }
 export enum ESize {
+  XS,
   S,
   M,
 }

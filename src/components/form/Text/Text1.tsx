@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
-import {scale} from 'react-native-size-matters';
+
+import {scale} from '../../../utils/Scales';
 import {Colors} from '../../../res';
 import {ESize, ETextType, IProps} from './model';
 
@@ -22,6 +23,9 @@ function buildStyles(type: ETextType, size: ESize) {
     case ESize.M:
       styleTextSize = styles.textM;
       break;
+    case ESize.XS:
+      styleTextSize = styles.textXS;
+      break;
   }
   return {styleTextColor, styleTextSize};
 }
@@ -31,10 +35,15 @@ const Text1 = ({
   type = ETextType.PRIMARY,
   size = ESize.S,
   style,
+  numberOfLines,
 }: IProps) => {
   const {styleTextColor, styleTextSize} = buildStyles(type, size);
   return (
-    <Text style={[styles.text, styleTextColor, styleTextSize, style]}>{children}</Text>
+    <Text
+      numberOfLines={numberOfLines}
+      style={[styles.text, styleTextColor, styleTextSize, style]}>
+      {children}
+    </Text>
   );
 };
 
@@ -50,6 +59,9 @@ const styles = StyleSheet.create({
   },
   textSecondary: {
     color: Colors.SECONDARY,
+  },
+  textXS: {
+    fontSize: scale(10),
   },
   textS: {
     fontSize: scale(12),

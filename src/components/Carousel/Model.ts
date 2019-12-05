@@ -1,6 +1,7 @@
 export interface ISlideEntry {
   data: IEntry;
   even: boolean;
+  parallaxProps: any;
 }
 export interface IEntry {
   title: string;

@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
+
+import {scale, verticalScale, moderateScale} from '../../../utils/Scales';
 import {Colors} from '../../../res';
 import {Text} from '../Text';
 import {ESize, ETextType} from '../Text/model';

@@ -15,6 +15,16 @@ const ENTRIES1: IEntry[] = [
     subtitle: 'Lorem ipsum dolor sit amet',
     illustration: 'https://i.imgur.com/UPrs1EWl.jpg',
   },
+  {
+    title: 'Beautiful and dramatic Antelope Canyon',
+    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+    illustration: 'https://www.w3schools.com/images/picture.jpg',
+  },
+  {
+    title: 'Earlier this morning, NYC',
+    subtitle: 'Lorem ipsum dolor sit amet',
+    illustration: 'https://media.geeksforgeeks.org/wp-content/uploads/geek.png',
+  },
 ];
 
 storiesOf('Carousel1').add('carousel', () => (

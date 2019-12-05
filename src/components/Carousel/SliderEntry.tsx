@@ -1,33 +1,42 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
-import {Colors} from '../../res';
-import {verticalScale, scale} from 'react-native-size-matters';
-import {StyleSheet, Platform} from 'react-native';
-import {ISlideEntry} from './Model';
+import {StyleSheet, View} from 'react-native';
+import {ParallaxImage} from 'react-native-snap-carousel';
 
-const IS_IOS = Platform.OS === 'ios';
-const entryBorderRadius = 8;
+import {Colors} from '../../res';
+import {Text} from '../form/Text';
+import {ESize} from '../form/Text/model';
+import {ISlideEntry} from './Model';
+import {scale, verticalScale, moderateScale} from '../../utils/Scales';
 
 const SliderEntry = ({
   data: {illustration, subtitle, title},
   even,
+  parallaxProps,
 }: ISlideEntry): any => {
   return (
     <View style={styles.slideInnerContainer}>
-      <View style={styles.shadow} />
       <View
         style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
-        <Image source={{uri: illustration}} style={styles.image} />
-        <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
+        <ParallaxImage
+          source={{uri: illustration}}
+          style={styles.image}
+          containerStyle={[
+            styles.imageContainer,
+            even && styles.imageContainerEven,
+          ]}
+          spinnerColor={even ? Colors.PRIMARY_LIGHT : Colors.PRIMARY_DARK}
+          {...parallaxProps}
+        />
       </View>
-      <View
-        style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
+      <View style={[styles.textContainer, even && styles.textContainerEven]}>
         <Text
+          size={ESize.S}
           style={[styles.title, even ? styles.titleEven : {}]}
           numberOfLines={2}>
           {title}
         </Text>
         <Text
+          size={ESize.XS}
           style={[styles.subtitle, even ? styles.subtitleEven : {}]}
           numberOfLines={2}>
           {subtitle}
@@ -41,77 +50,45 @@ export default SliderEntry;
 
 const styles = StyleSheet.create({
   slideInnerContainer: {
-    width: verticalScale(250),
-    height: verticalScale(250),
-    paddingHorizontal: scale(20),
-    paddingBottom: verticalScale(18), // needed for shadow
-  },
-  shadow: {
-    position: 'absolute',
-    top: 0,
-    left: scale(20),
-    right: scale(20),
-    bottom: 18,
-    shadowColor: Colors.PRIMARY_DARK,
-    shadowOpacity: 0.25,
-    shadowOffset: {width: 0, height: 10},
-    shadowRadius: 10,
-    borderRadius: entryBorderRadius,
+    width: moderateScale(300),
+    height: moderateScale(300),
+    paddingHorizontal: scale(10),
   },
   imageContainer: {
     flex: 1,
-    marginBottom: IS_IOS ? 0 : -1, // Prevent a random Android rendering issue
     backgroundColor: Colors.PRIMARY_LIGHT,
-    borderTopLeftRadius: entryBorderRadius,
-    borderTopRightRadius: entryBorderRadius,
+    borderTopLeftRadius: scale(10),
+    borderTopRightRadius: scale(10),
   },
   imageContainerEven: {
-    backgroundColor: Colors.PRIMARY_DARK,
+    backgroundColor: Colors.SECONDARY_LIGHT,
   },
   image: {
-    ...StyleSheet.absoluteFillObject,
     resizeMode: 'cover',
-    borderRadius: IS_IOS ? entryBorderRadius : 0,
-    borderTopLeftRadius: entryBorderRadius,
-    borderTopRightRadius: entryBorderRadius,
-  },
-  // image's border radius is buggy on iOS; let's hack it!
-  radiusMask: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: entryBorderRadius,
-    backgroundColor: Colors.PRIMARY_LIGHT,
-  },
-  radiusMaskEven: {
-    backgroundColor: Colors.PRIMARY_DARK,
   },
   textContainer: {
     justifyContent: 'center',
-    paddingTop: 20 - entryBorderRadius,
-    paddingBottom: 20,
-    paddingHorizontal: 16,
+    paddingVertical: verticalScale(10),
+    paddingHorizontal: scale(16),
     backgroundColor: Colors.PRIMARY_LIGHT,
-    borderBottomLeftRadius: entryBorderRadius,
-    borderBottomRightRadius: entryBorderRadius,
+    borderBottomLeftRadius: scale(10),
+    borderBottomRightRadius: scale(10),
   },
   textContainerEven: {
     backgroundColor: Colors.PRIMARY_DARK,
   },
   title: {
     color: Colors.White,
-    fontSize: 13,
+    textAlign: 'left',
     fontWeight: 'bold',
-    letterSpacing: 0.5,
   },
   titleEven: {
     color: Colors.White,
   },
   subtitle: {
-    marginTop: 6,
+    marginTop: verticalScale(6),
     color: Colors.White,
-    fontSize: 12,
+    textAlign: 'left',
     fontStyle: 'italic',
   },
   subtitleEven: {

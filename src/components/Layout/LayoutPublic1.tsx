@@ -8,9 +8,9 @@ import {
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
-import {scale} from 'react-native-size-matters';
 import {withNavigation} from 'react-navigation';
 
+import {scale} from '../../utils/Scales';
 import {Colors, Images} from '../../res';
 
 interface ILayoutPublic {
