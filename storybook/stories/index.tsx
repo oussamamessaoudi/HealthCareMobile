@@ -4,3 +4,4 @@ setI18nConfig();
 SplashScreen.hide();
 
 require('./components/Layout/PublicLayout1');
+require('./components/Carousel/Carousel1');

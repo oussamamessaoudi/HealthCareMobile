@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 
-import {scale} from 'react-native-size-matters'
+import {scale} from 'react-native-size-matters';
 
-import {Colors} from '../../res'
+import {Colors} from '../../res';
 
 interface IProps {
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 const LayoutPublic = ({children}: IProps) => {
@@ -18,8 +18,8 @@ const LayoutPublic = ({children}: IProps) => {
       />
       <View style={styles.container}>{children}</View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   root: {
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-})
+});
 
 export default LayoutPublic;

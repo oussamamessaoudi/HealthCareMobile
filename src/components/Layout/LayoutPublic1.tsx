@@ -6,30 +6,35 @@ import {
   Text,
   StyleSheet,
   StatusBar,
-  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
 import {scale} from 'react-native-size-matters';
 import {withNavigation} from 'react-navigation';
 
 import {Colors, Images} from '../../res';
 
-interface IProps {
+interface ILayoutPublic {
   children?: React.ReactNode;
-  navigation: any;
+  navigation: {
+    goBack: () => any;
+  };
+  canGoBack: boolean;
 }
-
-const LayoutPublic = ({children, navigation}: IProps) => {
-  const index = navigation.dangerouslyGetParent().state.index;
+export const LayoutPublic = ({
+  children,
+  canGoBack,
+  navigation,
+}: ILayoutPublic) => {
   return (
     <SafeAreaView style={styles.root}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.White} />
       <View style={styles.header}>
-        {index > 0 && (
-          <TouchableHighlight
+        {canGoBack && (
+          <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.containerGoBack}>
             <Image style={styles.goBack} source={Images.goBack} />
-          </TouchableHighlight>
+          </TouchableOpacity>
         )}
         <Image source={Images.logo} style={styles.logo} />
         <Text style={styles.appName}>HEALTH{'\n'}CARE</Text>
@@ -39,7 +44,18 @@ const LayoutPublic = ({children, navigation}: IProps) => {
   );
 };
 
-const LayoutPublicWithNavigation = withNavigation(LayoutPublic);
+const WrapperLayoutPublic = ({children, navigation}: any) => {
+  const index = navigation!.dangerouslyGetParent().state.index;
+  return (
+    <LayoutPublic
+      canGoBack={index > 0}
+      children={children}
+      navigation={navigation}
+    />
+  );
+};
+
+const LayoutPublicWithNavigation = withNavigation(WrapperLayoutPublic);
 
 const styles = StyleSheet.create({
   root: {

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {View, Text, StyleSheet, Button} from 'react-native';
 import {ControllerContext} from '../../utils/Context'
-import {LayoutPublic} from "../../components/layout";
+import {LayoutPublic} from "../../components/Layout";
 
 export default function() {
   const controller = useContext(ControllerContext);
