@@ -1,14 +1,16 @@
 const colors = {
-  PRIMARY_TEXT: '#ffffff',
   BLACK: '#000000',
   White: '#ffffff',
-  PRIMARY: '#001c6d',
-  PRIMARY_LIGHT: '#43439c',
-  PRIMARY_DARK: '#000041',
-  SECONDARY_TEXT: '#ffffff',
-  SECONDARY: '#546e7a',
-  SECONDARY_LIGHT: '#819ca9',
-  SECONDARY_DARK: '#29434e',
+
+  PRIMARY: '#02143c',
+  PRIMARY_TEXT: '#ffffff',
+  PRIMARY_LIGHT: '#323967',
+  PRIMARY_DARK: '#000018',
+
+  SECONDARY: '#e91e63',
+  SECONDARY_TEXT: '#000000',
+  SECONDARY_LIGHT: '#ff6090',
+  SECONDARY_DARK: '#b0003a',
 };
 
 export default colors;

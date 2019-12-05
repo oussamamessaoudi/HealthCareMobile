@@ -32,7 +32,7 @@ export const setI18nConfig: (
 
   // clear translation cache
   translate.cache.clear!();
-  // update layout direction
+  // update Layout direction
   I18nManager.forceRTL(isRTL);
   // set i18n-js config
   i18n.locale = languageTag;

@@ -1,29 +1,20 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  Image,
-  Text,
-  StyleSheet,
-  StatusBar,
-} from 'react-native';
+import {Image, SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 import {scale} from 'react-native-size-matters';
 
 import {Colors, Images} from '../../res';
+import {Text} from '../form/Text';
+import {IProps} from "./model";
 
-interface IProps {
-  children?: React.ReactNode;
-}
+
 
 const LayoutPublic = ({children}: IProps) => {
   return (
     <SafeAreaView style={styles.root}>
-      <StatusBar barStyle='dark-content' backgroundColor={Colors.White} />
+      <StatusBar barStyle="dark-content" backgroundColor={Colors.White} />
       <View style={styles.header}>
         <Image source={Images.logo} style={styles.logo} />
-        <Text style={styles.appName}>
-          HEALTH{'\n'}CARE
-        </Text>
+        <Text style={styles.appName}>HEALTH{'\n'}CARE</Text>
       </View>
       <View style={styles.container}>{children}</View>
     </SafeAreaView>
@@ -39,7 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    height: scale(40)
+    height: scale(40),
   },
   container: {
     flex: 1,
@@ -51,10 +42,7 @@ const styles = StyleSheet.create({
     height: scale(35),
   },
   appName: {
-    textAlign: 'center',
-    color: Colors.BLACK,
     fontSize: scale(12),
-    paddingLeft: scale(5),
     fontFamily: 'Montserrat-SemiBold',
   },
 });

@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {View, Text, StyleSheet, Button} from 'react-native'
 import {ControllerContext} from '../../utils/Context'
 import {IScreen} from '../../utils/models'
-import {LayoutWithHeader} from '../../components/layout';
+import {LayoutWithHeader} from '../../components/Layout';
 
 
 export default function(props : IScreen) {
