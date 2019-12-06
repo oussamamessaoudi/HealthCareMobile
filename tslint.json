@@ -14,13 +14,13 @@
     ],
     "semicolon": [
       true,
-      "never"
+      "always"
     ],
     "member-access": [
-      false
+      true
     ],
     "member-ordering": [
-      false
+      true
     ],
     "trailing-comma": [
       true,
