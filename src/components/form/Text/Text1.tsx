@@ -1,72 +1,75 @@
-import React from 'react';
+import React, {memo, useMemo} from 'react';
 import {StyleSheet, Text} from 'react-native';
 
 import {scale} from '../../../utils/Scales';
-import {Colors} from '../../../res';
+import {Colors, Fonts} from '../../../res';
 import {ESize, ETextType, IProps} from './model';
 
-function buildStyles(type: ETextType, size: ESize) {
-  let styleTextColor = null;
-  let styleTextSize = null;
-  switch (type) {
-    case ETextType.PRIMARY:
-      styleTextColor = styles.textPrimary;
-      break;
-    case ETextType.SECONDARY:
-      styleTextColor = styles.textSecondary;
-      break;
-  }
-  switch (size) {
-    case ESize.S:
-      styleTextSize = styles.textS;
-      break;
-    case ESize.M:
-      styleTextSize = styles.textM;
-      break;
-    case ESize.XS:
-      styleTextSize = styles.textXS;
-      break;
-  }
-  return {styleTextColor, styleTextSize};
-}
+const Text1 = memo(
+  ({
+    children,
+    type = ETextType.PRIMARY,
+    size = ESize.S,
+    style,
+    numberOfLines,
+  }: IProps) => {
+    const styles = useMemo(() => {
+      return StyleSheet.create({
+        text: {
+          textAlign: 'center',
+        },
+        textPrimary: {
+          color: Colors.PRIMARY,
+          fontFamily: Fonts.HEADER,
+        },
+        textSecondary: {
+          color: Colors.PRIMARY_LIGHT,
+          fontFamily: Fonts.BODY,
+        },
+        textXS: {
+          fontSize: scale(10),
+        },
+        textS: {
+          fontSize: scale(12),
+        },
+        textM: {
+          fontSize: scale(14),
+        },
+      });
+    }, []);
+    const {styleTextColor, styleTextSize} = useMemo(() => {
+      let _styleTextColor = null;
+      let _styleTextSize = null;
+      switch (type) {
+        case ETextType.PRIMARY:
+          _styleTextColor = styles.textPrimary;
+          break;
+        case ETextType.SECONDARY:
+          _styleTextColor = styles.textSecondary;
+          break;
+      }
+      switch (size) {
+        case ESize.S:
+          _styleTextSize = styles.textS;
+          break;
+        case ESize.M:
+          _styleTextSize = styles.textM;
+          break;
+        case ESize.XS:
+          _styleTextSize = styles.textXS;
+          break;
+      }
+      return {styleTextColor: _styleTextColor, styleTextSize: _styleTextSize};
+    }, [type, size, styles]);
 
-const Text1 = ({
-  children,
-  type = ETextType.PRIMARY,
-  size = ESize.S,
-  style,
-  numberOfLines,
-}: IProps) => {
-  const {styleTextColor, styleTextSize} = buildStyles(type, size);
-  return (
-    <Text
-      numberOfLines={numberOfLines}
-      style={[styles.text, styleTextColor, styleTextSize, style]}>
-      {children}
-    </Text>
-  );
-};
+    return (
+      <Text
+        numberOfLines={numberOfLines}
+        style={[styles.text, styleTextColor, styleTextSize, style]}>
+        {children}
+      </Text>
+    );
+  },
+);
 
 export default Text1;
-
-const styles = StyleSheet.create({
-  text: {
-    textAlign: 'center',
-    fontFamily: 'Montserrat-SemiBold',
-  },
-  textPrimary: {
-    color: Colors.PRIMARY,
-  },
-  textSecondary: {
-    color: Colors.SECONDARY,
-  },
-  textXS: {
-    fontSize: scale(10),
-  },
-  textS: {
-    fontSize: scale(12),
-  },
-  textM: {
-    fontSize: scale(14),
-  },
-});

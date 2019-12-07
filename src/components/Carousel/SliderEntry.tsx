@@ -78,20 +78,20 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.PRIMARY_DARK,
   },
   title: {
-    color: Colors.White,
+    color: Colors.WHITE,
     textAlign: 'left',
     fontWeight: 'bold',
   },
   titleEven: {
-    color: Colors.White,
+    color: Colors.WHITE,
   },
   subtitle: {
     marginTop: verticalScale(6),
-    color: Colors.White,
+    color: Colors.WHITE,
     textAlign: 'left',
     fontStyle: 'italic',
   },
   subtitleEven: {
-    color: Colors.White,
+    color: Colors.WHITE,
   },
 });

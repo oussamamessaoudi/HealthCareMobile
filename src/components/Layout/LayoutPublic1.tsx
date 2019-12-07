@@ -28,7 +28,7 @@ export const LayoutPublic = ({
 }: ILayoutPublic) => {
   return (
     <SafeAreaView style={styles.root}>
-      <StatusBar barStyle="dark-content" backgroundColor={Colors.White} />
+      <StatusBar barStyle="dark-content" backgroundColor={Colors.WHITE} />
       <View style={styles.header}>
         {canGoBack && (
           <TouchableOpacity

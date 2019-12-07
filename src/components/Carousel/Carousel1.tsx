@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {memo, useState} from 'react';
 import {Dimensions, StyleSheet, View} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 
@@ -20,7 +20,7 @@ const renderItem = (
   );
 };
 
-const Carousel1 = ({entries}: ICarouselProps) => {
+const Carousel1 = memo(({entries}: ICarouselProps) => {
   const [activeSlide, setActiveSlide] = useState(0);
   return (
     <View>
@@ -48,7 +48,7 @@ const Carousel1 = ({entries}: ICarouselProps) => {
       />
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   slider: {

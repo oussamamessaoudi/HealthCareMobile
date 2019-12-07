@@ -1,7 +1,9 @@
 const colors = {
   BLACK: '#000000',
-  White: '#ffffff',
-
+  WHITE: '#ffffff',
+  ORANGE: 'orange',
+  GREEN: 'green',
+  RED: 'red',
   PRIMARY: '#02143c',
   PRIMARY_TEXT: '#ffffff',
   PRIMARY_LIGHT: '#323967',
