@@ -1,6 +1,6 @@
 {
-    "layout" :{
-      "display_name" : "HEALTH\nCARE"
-    },
-    "hello": "Hello World!"
+  "hello": "Salut le Monde!",
+  "marketing": {
+    "navigate": "ACCÈS À VOTRE COMPTE"
+  }
 }

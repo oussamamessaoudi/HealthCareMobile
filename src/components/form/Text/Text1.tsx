@@ -13,30 +13,6 @@ const Text1 = memo(
     style,
     numberOfLines,
   }: IProps) => {
-    const styles = useMemo(() => {
-      return StyleSheet.create({
-        text: {
-          textAlign: 'center',
-        },
-        textPrimary: {
-          color: Colors.PRIMARY,
-          fontFamily: Fonts.HEADER,
-        },
-        textSecondary: {
-          color: Colors.PRIMARY_LIGHT,
-          fontFamily: Fonts.BODY,
-        },
-        textXS: {
-          fontSize: scale(10),
-        },
-        textS: {
-          fontSize: scale(12),
-        },
-        textM: {
-          fontSize: scale(14),
-        },
-      });
-    }, []);
     const {styleTextColor, styleTextSize} = useMemo(() => {
       let _styleTextColor = null;
       let _styleTextSize = null;
@@ -60,7 +36,7 @@ const Text1 = memo(
           break;
       }
       return {styleTextColor: _styleTextColor, styleTextSize: _styleTextSize};
-    }, [type, size, styles]);
+    }, [type, size]);
 
     return (
       <Text
@@ -71,5 +47,27 @@ const Text1 = memo(
     );
   },
 );
+const styles = StyleSheet.create({
+  text: {
+    textAlign: 'center',
+  },
+  textPrimary: {
+    color: Colors.PRIMARY,
+    fontFamily: Fonts.HEADER,
+  },
+  textSecondary: {
+    color: Colors.PRIMARY_LIGHT,
+    fontFamily: Fonts.BODY,
+  },
+  textXS: {
+    fontSize: scale(10),
+  },
+  textS: {
+    fontSize: scale(12),
+  },
+  textM: {
+    fontSize: scale(14),
+  },
+});
 
 export default Text1;

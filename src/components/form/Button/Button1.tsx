@@ -1,4 +1,4 @@
-import React, {memo, useMemo} from 'react';
+import React, {memo} from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Colors} from '../../../res';
 
@@ -9,25 +9,6 @@ import {ETypeButton, IProps} from './model';
 
 const Button1 = memo(
   ({title, onPress, disabled, type = ETypeButton.PRIMARY}: IProps) => {
-    const styles = useMemo(() => {
-      return StyleSheet.create({
-        button: {
-          flex: 1,
-          borderColor: Colors.SECONDARY_LIGHT,
-          borderWidth: moderateScale(2),
-          paddingVertical: verticalScale(10),
-          borderRadius: scale(20),
-        },
-        secondaryButton: {
-          borderColor: Colors.GREEN,
-        },
-        disabledButton: {
-          borderColor: Colors.PRIMARY_DARK,
-          opacity: 0.3,
-        },
-      });
-    }, []);
-
     return (
       <TouchableOpacity
         disabled={disabled}
@@ -45,5 +26,21 @@ const Button1 = memo(
     );
   },
 );
+const styles = StyleSheet.create({
+  button: {
+    flex: 1,
+    borderColor: Colors.SECONDARY_LIGHT,
+    borderWidth: moderateScale(2),
+    paddingVertical: verticalScale(10),
+    borderRadius: scale(20),
+  },
+  secondaryButton: {
+    borderColor: Colors.GREEN,
+  },
+  disabledButton: {
+    borderColor: Colors.PRIMARY_DARK,
+    opacity: 0.3,
+  },
+});
 
 export default Button1;

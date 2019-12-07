@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback} from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -22,37 +22,6 @@ const Alert1 = ({
   const close = useCallback(() => {
     setVisible(false);
   }, [setVisible]);
-
-  const styles = useMemo(() => {
-    return StyleSheet.create({
-      container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
-      containerContent: {
-        width: scale(280),
-        height: moderateScale(250),
-        padding: scale(10),
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: Colors.WHITE,
-      },
-      closeContainer: {
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'flex-end',
-      },
-      buttonsContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-      },
-      separator: {
-        width: scale(10),
-      },
-    });
-  }, []);
 
   const IconToShow = useCallback(() => {
     switch (alertType) {
@@ -123,5 +92,34 @@ const Alert1 = ({
     </Modal>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  containerContent: {
+    width: scale(280),
+    height: moderateScale(250),
+    padding: scale(10),
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: Colors.WHITE,
+  },
+  closeContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'flex-end',
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator: {
+    width: scale(10),
+  },
+});
 
 export default Alert1;

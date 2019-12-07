@@ -7,7 +7,7 @@ export const Routers: IRouters = {
   initialScreen: 'marketing',
   screens: {
     marketing: {screen: Marketing, displayName: 'Marketing', showHeader: false},
-    login: {screen: Login, displayName: 'Login', showHeader: true},
+    login: {screen: Login, displayName: 'Login', showHeader: false},
   },
 };
 export const defaultValueRouter: any = {

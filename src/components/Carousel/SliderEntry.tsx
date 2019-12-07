@@ -1,6 +1,5 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {ParallaxImage} from 'react-native-snap-carousel';
+import React, {memo} from 'react';
+import {StyleSheet, View, Image} from 'react-native';
 
 import {Colors} from '../../res';
 import {Text} from '../form/Text';
@@ -8,45 +7,37 @@ import {ESize} from '../form/Text/model';
 import {ISlideEntry} from './Model';
 import {scale, verticalScale, moderateScale} from '../../utils/Scales';
 
-const SliderEntry = ({
-  data: {illustration, subtitle, title},
-  even,
-  parallaxProps,
-}: ISlideEntry): any => {
-  return (
-    <View style={styles.slideInnerContainer}>
-      <View
-        style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
-        <ParallaxImage
-          source={{uri: illustration}}
-          style={styles.image}
-          containerStyle={[
+const SliderEntry = memo(
+  ({data: {illustration, subtitle, title}, even}: ISlideEntry): any => {
+    console.log(illustration);
+    return (
+      <View style={styles.slideInnerContainer}>
+        <Image
+          source={{uri: illustration, cache: 'force-cache'}}
+          resizeMode="cover"
+          style={[
             styles.imageContainer,
-            even && styles.imageContainerEven,
+            even ? styles.imageContainerEven : null,
           ]}
-          spinnerColor={even ? Colors.PRIMARY_LIGHT : Colors.PRIMARY_DARK}
-          {...parallaxProps}
         />
+        <View style={[styles.textContainer, even && styles.textContainerEven]}>
+          <Text
+            size={ESize.S}
+            style={[styles.title, even ? styles.titleEven : null]}
+            numberOfLines={2}>
+            {title}
+          </Text>
+          <Text
+            size={ESize.XS}
+            style={[styles.subtitle, even ? styles.subtitleEven : null]}
+            numberOfLines={2}>
+            {subtitle}
+          </Text>
+        </View>
       </View>
-      <View style={[styles.textContainer, even && styles.textContainerEven]}>
-        <Text
-          size={ESize.S}
-          style={[styles.title, even ? styles.titleEven : {}]}
-          numberOfLines={2}>
-          {title}
-        </Text>
-        <Text
-          size={ESize.XS}
-          style={[styles.subtitle, even ? styles.subtitleEven : {}]}
-          numberOfLines={2}>
-          {subtitle}
-        </Text>
-      </View>
-    </View>
-  );
-};
-
-export default SliderEntry;
+    );
+  },
+);
 
 const styles = StyleSheet.create({
   slideInnerContainer: {
@@ -62,9 +53,6 @@ const styles = StyleSheet.create({
   },
   imageContainerEven: {
     backgroundColor: Colors.SECONDARY_LIGHT,
-  },
-  image: {
-    resizeMode: 'cover',
   },
   textContainer: {
     justifyContent: 'center',
@@ -95,3 +83,5 @@ const styles = StyleSheet.create({
     color: Colors.WHITE,
   },
 });
+
+export default SliderEntry;

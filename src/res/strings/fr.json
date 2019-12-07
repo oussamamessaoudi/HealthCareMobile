@@ -1,3 +1,6 @@
 {
-  "hello": "Salut le Monde!"
+  "hello": "Salut le Monde!",
+  "marketing": {
+    "navigate": "ACCÈS À VOTRE COMPTE"
+  }
 }

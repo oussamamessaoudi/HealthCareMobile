@@ -1,4 +1,5 @@
 import {NavigationContainerComponent} from 'react-navigation';
+import {IClient} from './Client';
 
 export interface IScreen {
   navigation: {
@@ -14,9 +15,9 @@ export interface IConfig {
 }
 
 export interface IController {
-  setNavigator(nav: NavigationContainerComponent | null): void;
-
+  setNavigator(nav: NavigationContainerComponent): void;
   navigate(routeName: string, p?: any): void;
+  client: IClient;
   screens: any;
 }
 
@@ -26,8 +27,8 @@ export interface IRouters {
 }
 export interface IScreens {
   [name: string]: {
-    screen: any,
-    displayName: string,
-    showHeader : boolean,
+    screen: any;
+    displayName: string;
+    showHeader: boolean;
   };
 }

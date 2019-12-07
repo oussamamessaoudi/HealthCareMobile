@@ -1,23 +1,20 @@
-import React, {useContext} from 'react'
-import {View, Text, StyleSheet, Button} from 'react-native'
-import {ControllerContext} from '../../utils/Context'
-import {IScreen} from '../../utils/models'
-import {LayoutWithHeader} from '../../components/Layout';
+import React, {useContext} from 'react';
+import {View, Text, StyleSheet, Button} from 'react-native';
+import {LayoutPublic} from '../../components/Layout';
+import {ControllerContext} from '../../utils/Context';
 
-
-export default function(props : IScreen) {
+export default function() {
   const controller = useContext(ControllerContext);
-  console.log(props.navigation.getParam("from"));
   return (
-      <LayoutWithHeader>
-        <View style={styles.container}>
-          <Text>Login Screen</Text>
-          <Button
-              onPress={() => controller?.navigate('marketing')}
-              title="Press Me"
-          />
-        </View>
-      </LayoutWithHeader>
+    <LayoutPublic>
+      <View style={styles.container}>
+        <Text>Login Screen</Text>
+        <Button
+          onPress={() => controller!.navigate('marketing')}
+          title="Press Me"
+        />
+      </View>
+    </LayoutPublic>
   );
 }
 

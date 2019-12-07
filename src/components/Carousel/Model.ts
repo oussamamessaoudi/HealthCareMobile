@@ -10,4 +10,5 @@ export interface IEntry {
 }
 export interface ICarouselProps {
   entries: IEntry[];
+  containerStyle?: object;
 }

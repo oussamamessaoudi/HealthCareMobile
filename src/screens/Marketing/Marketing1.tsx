@@ -1,26 +1,45 @@
-import React, {useContext} from 'react'
-import {View, Text, StyleSheet, Button} from 'react-native';
-import {ControllerContext} from '../../utils/Context'
-import {LayoutPublic} from "../../components/Layout";
+import React from 'react';
+import {View, StyleSheet, ActivityIndicator} from 'react-native';
+import {Carousel} from '../../components/Carousel';
+import Button1 from '../../components/form/Button/Button1';
+import {LayoutPublic} from '../../components/Layout';
+import {translate} from '../../res/strings';
+import {StateApi} from '../../utils/Api';
+import {scale} from '../../utils/Scales';
+import {useController} from './Controller';
 
 export default function() {
-  const controller = useContext(ControllerContext);
+  const {response, navigate} = useController();
+
+  if (response.state !== StateApi.SUCCESS) {
+    return <ActivityIndicator />;
+  }
   return (
-      <LayoutPublic>
-          <View style={styles.container}>
-              <Text>Marketing Screen</Text>
-              <Button
-                  onPress={() => controller?.navigate('login', {from :"fromHome"})}
-                  title='Press Me'
-              />
-          </View>
-      </LayoutPublic>
+    <LayoutPublic>
+      <View style={styles.container}>
+        <Carousel
+          entries={response.data!}
+          containerStyle={styles.containerCarousel}
+        />
+        <View style={styles.containerView}>
+          <Button1 title={translate('marketing.navigate')} onPress={navigate} />
+        </View>
+      </View>
+    </LayoutPublic>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+  },
+  containerCarousel: {
+    height: scale(350),
+  },
+  containerView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
