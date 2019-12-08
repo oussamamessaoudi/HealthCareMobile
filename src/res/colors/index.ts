@@ -4,6 +4,7 @@ const colors = {
   ORANGE: 'orange',
   GREEN: 'green',
   RED: 'red',
+  GERY: '#333333',
   PRIMARY: '#02143c',
   PRIMARY_TEXT: '#ffffff',
   PRIMARY_LIGHT: '#323967',

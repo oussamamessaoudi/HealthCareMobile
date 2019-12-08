@@ -10,6 +10,7 @@ export interface IScreen {
 export interface IConfig {
   urls: {
     content: string;
+    passport: string;
   };
   timeout?: number;
 }
@@ -17,6 +18,7 @@ export interface IConfig {
 export interface IController {
   setNavigator(nav: NavigationContainerComponent): void;
   navigate(routeName: string, p?: any): void;
+  reset(routeName: string): void;
   client: IClient;
   screens: any;
 }

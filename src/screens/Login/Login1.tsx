@@ -1,18 +1,61 @@
-import React, {useContext} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
+import {Button} from '../../components/form/Button';
+import {Input} from '../../components/form/Input';
+import {Text} from '../../components/form/Text';
+import {ESize, ETextAlign} from '../../components/form/Text/model';
 import {LayoutPublic} from '../../components/Layout';
-import {ControllerContext} from '../../utils/Context';
+import {Colors} from '../../res';
+import {translate} from '../../res/strings';
+import {StateApi} from '../../utils/Api';
+import {scale, verticalScale} from '../../utils/Scales';
+import {useController} from './Controller';
 
 export default function() {
-  const controller = useContext(ControllerContext);
+  const {
+    username,
+    password,
+    setUsername,
+    setPassword,
+    response,
+    submit,
+  } = useController();
   return (
     <LayoutPublic>
       <View style={styles.container}>
-        <Text>Login Screen</Text>
-        <Button
-          onPress={() => controller!.navigate('marketing')}
-          title="Press Me"
-        />
+        <View style={styles.titleContainer}>
+          <Text textAlign={ETextAlign.LEFT} size={ESize.L}>
+            {translate('login.title')}
+          </Text>
+          <View style={styles.line} />
+        </View>
+        <View style={styles.subtitleContainer}>
+          <Text textAlign={ETextAlign.LEFT} size={ESize.L}>
+            {translate('login.subtitle')}
+          </Text>
+        </View>
+        <View style={styles.formsContainer}>
+          <Input
+            label={translate('login.username')}
+            value={username}
+            onChange={setUsername}
+          />
+          <View style={styles.spacing} />
+          <Input
+            label={translate('login.password')}
+            value={password}
+            secureTextEntry
+            onChange={setPassword}
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            title={translate('login.submit')}
+            disabled={username.length === 0 || password.length === 0}
+            loading={response.state === StateApi.LOADING}
+            onPress={submit}
+          />
+        </View>
       </View>
     </LayoutPublic>
   );
@@ -21,7 +64,33 @@ export default function() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+  },
+  titleContainer: {
+    flex: 2,
     justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  line: {
+    backgroundColor: Colors.SECONDARY,
+    height: verticalScale(2),
+    width: scale(50),
+    marginTop: verticalScale(5),
+  },
+  subtitleContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  formsContainer: {
+    flex: 4,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+  },
+  spacing: {
+    height: verticalScale(20),
+  },
+  buttonContainer: {
+    flex: 3,
+    justifyContent: 'flex-start',
   },
 });

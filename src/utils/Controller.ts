@@ -1,6 +1,7 @@
 import {
   NavigationActions,
   NavigationContainerComponent,
+  StackActions,
 } from 'react-navigation';
 import {Client, IClient} from './Client';
 import {IConfig, IController} from './models';
@@ -33,7 +34,7 @@ export default class Controller implements IController {
       {},
     );
     const controller = new Controller(
-      {timeout: 0, urls: {content: ''}},
+      {timeout: 0, urls: {content: '', passport: ''}},
       screens,
     );
     return new Promise(resolve => setTimeout(() => resolve(controller), 500));
@@ -44,5 +45,12 @@ export default class Controller implements IController {
   }
   navigate(routeName: string, params?: any): void {
     this.navigator!.dispatch(NavigationActions.navigate({routeName, params}));
+  }
+  reset(routeName: string, params?: any) {
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({routeName, params})],
+    });
+    this.navigator!.dispatch(resetAction);
   }
 }

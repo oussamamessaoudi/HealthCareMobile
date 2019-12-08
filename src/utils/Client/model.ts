@@ -1,7 +1,9 @@
 import {Content} from './Content';
+import Passport from './Passeport';
 
 export default interface IClient {
   content: Content;
+  passport: Passport;
 }
 export class HttpResponse<T> {
   readonly data: T;
@@ -12,7 +14,9 @@ export class HttpResponse<T> {
   }
 }
 export class Api {
-  async requestOffline<T>(data: T) {
-    return new HttpResponse<T>(data, 200);
+  requestOffline<T>(data: T) {
+    return new Promise<HttpResponse<T>>(resolve =>
+      setTimeout(() => resolve(new HttpResponse<T>(data, 200)), 500),
+    );
   }
 }

@@ -14,9 +14,9 @@ export default () => {
 
   useEffect(() => {
     console.log('controller initialed');
-    Controller.create().then(c => {
+    Controller.create().then(_controller => {
       console.log('controller created');
-      setController(c);
+      setController(_controller);
       SplashScreen.hide();
     });
   }, []);

@@ -7,11 +7,13 @@ import {
   StyleSheet,
   StatusBar,
   TouchableOpacity,
+  KeyboardAvoidingView,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {withNavigation} from 'react-navigation';
 
-import {scale} from '../../utils/Scales';
-import {Colors, Images} from '../../res';
+import {moderateScale, scale} from '../../utils/Scales';
+import {Colors, Fonts, Images} from '../../res';
 
 interface ILayoutPublic {
   children?: React.ReactNode;
@@ -28,19 +30,25 @@ export const LayoutPublic = ({
 }: ILayoutPublic) => {
   return (
     <SafeAreaView style={styles.root}>
-      <StatusBar barStyle="dark-content" backgroundColor={Colors.WHITE} />
+      <StatusBar barStyle="light-content" backgroundColor={Colors.PRIMARY} />
       <View style={styles.header}>
         {canGoBack && (
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.containerGoBack}>
-            <Image style={styles.goBack} source={Images.goBack} />
+            <Icon
+              name="chevron-left"
+              size={moderateScale(20)}
+              color={Colors.PRIMARY_TEXT}
+            />
           </TouchableOpacity>
         )}
         <Image source={Images.logo} style={styles.logo} />
         <Text style={styles.appName}>HEALTH{'\n'}CARE</Text>
       </View>
-      <View style={styles.container}>{children}</View>
+      <KeyboardAvoidingView style={styles.container} behavior="height" enabled>
+        {children}
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
@@ -61,7 +69,7 @@ const LayoutPublicWithNavigation = withNavigation(WrapperLayoutPublic);
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    marginHorizontal: scale(20),
+    backgroundColor: Colors.PRIMARY,
   },
   containerGoBack: {
     paddingRight: scale(5),
@@ -70,6 +78,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    paddingHorizontal: scale(20),
     height: scale(40),
   },
   goBack: {
@@ -78,8 +87,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    paddingHorizontal: scale(20),
   },
   logo: {
     width: scale(35),
@@ -87,10 +98,10 @@ const styles = StyleSheet.create({
   },
   appName: {
     textAlign: 'center',
-    color: Colors.BLACK,
+    color: Colors.PRIMARY_TEXT,
     fontSize: scale(12),
     paddingLeft: scale(5),
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: Fonts.HEADER,
   },
 });
 
