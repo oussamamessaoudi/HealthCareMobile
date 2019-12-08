@@ -1,4 +1,4 @@
-import {useContext, useEffect, useMemo, useState} from 'react';
+import {useCallback, useContext, useEffect, useState} from 'react';
 import {IEntry} from '../../components/Carousel/Model';
 import {IResponse, StateApi} from '../../utils/Api';
 import {ControllerContext} from '../../utils/Context';
@@ -8,18 +8,15 @@ export function useController() {
   const [response, setResponse] = useState<IResponse<IEntry[]>>({
     state: StateApi.INITIALIZE,
   });
-  const handleResponse = useMemo(
-    () => async () => {
-      try {
-        setResponse({state: StateApi.LOADING});
-        const marketing = await controller!.client.content.getMarketing();
-        setResponse({state: StateApi.SUCCESS, data: marketing.data});
-      } catch (e) {
-        setResponse({state: StateApi.ERROR});
-      }
-    },
-    [controller],
-  );
+  const handleResponse = useCallback(async () => {
+    try {
+      setResponse({state: StateApi.LOADING});
+      const marketing = await controller!.client.content.getMarketing();
+      setResponse({state: StateApi.SUCCESS, data: marketing.data});
+    } catch (e) {
+      setResponse({state: StateApi.ERROR});
+    }
+  }, [controller]);
 
   useEffect(() => {
     handleResponse();

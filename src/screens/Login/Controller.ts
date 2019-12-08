@@ -1,4 +1,4 @@
-import {useContext, useMemo, useState} from 'react';
+import {useCallback, useContext, useState} from 'react';
 import {IResponse, StateApi} from '../../utils/Api';
 import {ControllerContext} from '../../utils/Context';
 
@@ -14,22 +14,19 @@ export function useController() {
   const [response, setResponse] = useState<IResponse<IUser>>({
     state: StateApi.INITIALIZE,
   });
-  const submit = useMemo(
-    () => async () => {
-      try {
-        setResponse({state: StateApi.LOADING});
-        const user = await controller!.client.passport.authenticate(
-          username,
-          password,
-        );
-        setResponse({state: StateApi.SUCCESS, data: user.data});
-        controller!.reset('dashboard');
-      } catch (e) {
-        setResponse({state: StateApi.ERROR});
-      }
-    },
-    [controller, password, username],
-  );
+  const submit = useCallback(async () => {
+    try {
+      setResponse({state: StateApi.LOADING});
+      const user = await controller!.client.passport.authenticate(
+        username,
+        password,
+      );
+      setResponse({state: StateApi.SUCCESS, data: user.data});
+      controller!.reset('dashboard');
+    } catch (e) {
+      setResponse({state: StateApi.ERROR});
+    }
+  }, [controller, password, username]);
 
   return {
     response,
