@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {KeyboardAvoidingView, ScrollView, StyleSheet, View} from 'react-native';
 import {Button} from '../../components/form/Button';
 import {Input} from '../../components/form/Input';
 import {Text} from '../../components/form/Text';
@@ -22,41 +22,52 @@ export default function() {
   } = useController();
   return (
     <LayoutPublic>
-      <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Text textAlign={ETextAlign.LEFT} size={ESize.L}>
-            {translate('login.title')}
-          </Text>
-          <View style={styles.line} />
-        </View>
-        <View style={styles.subtitleContainer}>
-          <Text textAlign={ETextAlign.LEFT} size={ESize.L}>
-            {translate('login.subtitle')}
-          </Text>
-        </View>
-        <View style={styles.formsContainer}>
-          <Input
-            label={translate('login.username')}
-            value={username}
-            onChange={setUsername}
-          />
-          <View style={styles.spacing} />
-          <Input
-            label={translate('login.password')}
-            value={password}
-            secureTextEntry
-            onChange={setPassword}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            title={translate('login.submit')}
-            disabled={username.length === 0 || password.length === 0}
-            loading={response.state === StateApi.LOADING}
-            onPress={submit}
-          />
-        </View>
-      </View>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps="handled"
+        scrollEnabled={false}>
+        <KeyboardAvoidingView
+          enabled
+          behavior="padding"
+          style={styles.container}>
+          <View style={styles.titleContainer}>
+            <Text textAlign={ETextAlign.LEFT} size={ESize.L}>
+              {translate('login.title')}
+            </Text>
+            <View style={styles.line} />
+          </View>
+          <View style={styles.subtitleContainer}>
+            <Text textAlign={ETextAlign.LEFT} size={ESize.L}>
+              {translate('login.subtitle')}
+            </Text>
+          </View>
+          <View style={styles.formsContainer}>
+            <Input
+              label={translate('login.username')}
+              value={username}
+              onChange={setUsername}
+              returnKeyType="default"
+            />
+            <View style={styles.spacing} />
+            <Input
+              label={translate('login.password')}
+              value={password}
+              secureTextEntry
+              onChange={setPassword}
+              returnKeyType="done"
+              onSubmitEditing={submit}
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              title={translate('login.submit')}
+              disabled={username.length === 0 || password.length === 0}
+              loading={response.state === StateApi.LOADING}
+              onPress={submit}
+            />
+          </View>
+        </KeyboardAvoidingView>
+      </ScrollView>
     </LayoutPublic>
   );
 }

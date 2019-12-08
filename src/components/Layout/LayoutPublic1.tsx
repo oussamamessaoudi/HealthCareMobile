@@ -7,12 +7,11 @@ import {
   StyleSheet,
   StatusBar,
   TouchableOpacity,
-  KeyboardAvoidingView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {withNavigation} from 'react-navigation';
 
-import {moderateScale, scale} from '../../utils/Scales';
+import {moderateScale, scale, verticalScale} from '../../utils/Scales';
 import {Colors, Fonts, Images} from '../../res';
 
 interface ILayoutPublic {
@@ -46,9 +45,7 @@ export const LayoutPublic = ({
         <Image source={Images.logo} style={styles.logo} />
         <Text style={styles.appName}>HEALTH{'\n'}CARE</Text>
       </View>
-      <KeyboardAvoidingView style={styles.container} behavior="height" enabled>
-        {children}
-      </KeyboardAvoidingView>
+      <View style={styles.container}>{children}</View>
     </SafeAreaView>
   );
 };
@@ -79,7 +76,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingHorizontal: scale(20),
-    height: scale(40),
+    paddingTop: verticalScale(10),
+    height: scale(50),
   },
   goBack: {
     width: scale(20),

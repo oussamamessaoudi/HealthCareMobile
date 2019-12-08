@@ -7,7 +7,9 @@ import {verticalScale} from '../../../utils/Scales';
 interface IProps {
   label: string;
   value: string;
+  returnKeyType?: 'done' | 'default';
   onChange: (value: string) => void;
+  onSubmitEditing?: () => void;
   error?: boolean;
   secureTextEntry?: boolean;
 }
@@ -29,7 +31,9 @@ export default function Input({
   label,
   value,
   onChange,
+  onSubmitEditing,
   error,
+  returnKeyType = 'default',
   secureTextEntry,
 }: IProps) {
   return (
@@ -40,6 +44,9 @@ export default function Input({
       secureTextEntry={secureTextEntry}
       style={styles.inputContainer}
       mode="outlined"
+      keyboardAppearance="dark"
+      returnKeyType={returnKeyType}
+      onSubmitEditing={onSubmitEditing}
       error={error}
       theme={theme}
     />

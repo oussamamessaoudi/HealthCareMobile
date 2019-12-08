@@ -17,7 +17,7 @@ export default class Controller implements IController {
     this.client = new Client(config);
   }
 
-  public static create(): Promise<IController> {
+  public static async create(): Promise<IController> {
     const screens: any = Object.keys(Routers.screens).reduce(
       (previousValue: any, currentValue) => {
         const router = Routers.screens[currentValue];
@@ -33,11 +33,10 @@ export default class Controller implements IController {
       },
       {},
     );
-    const controller = new Controller(
+    return new Controller(
       {timeout: 0, urls: {content: '', passport: ''}},
       screens,
     );
-    return new Promise(resolve => setTimeout(() => resolve(controller), 500));
   }
 
   setNavigator(nav: NavigationContainerComponent): void {

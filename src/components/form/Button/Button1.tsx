@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {ActivityIndicator, StyleSheet, TouchableOpacity} from 'react-native'
+import {ActivityIndicator, StyleSheet, TouchableOpacity} from 'react-native';
 import {Colors} from '../../../res';
 
 import {moderateScale, scale, verticalScale} from '../../../utils/Scales';
@@ -20,7 +20,7 @@ const Button1 = memo(
           disabled && styles.disabledButton,
         ]}>
         {loading ? (
-          <ActivityIndicator size={scale(14)} color={Colors.SECONDARY} />
+          <ActivityIndicator size={scale(16)} color={Colors.SECONDARY} />
         ) : (
           <Text type={ETextType.PRIMARY} size={ESize.M}>
             {title}
