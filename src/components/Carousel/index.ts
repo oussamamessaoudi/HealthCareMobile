@@ -1,1 +1,1 @@
-export {default as Carousel} from './Carousel1';
+export {default as Carousel} from './Carousel2';

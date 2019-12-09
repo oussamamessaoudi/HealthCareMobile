@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'stretch',
     justifyContent: 'center',
-    paddingHorizontal: scale(10),
   },
   containerCarousel: {
-    height: scale(350),
+    flex: 2,
   },
   containerView: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'center',
+    paddingHorizontal: scale(20),
   },
 });

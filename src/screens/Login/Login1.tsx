@@ -5,10 +5,10 @@ import {Input} from '../../components/form/Input';
 import {Text} from '../../components/form/Text';
 import {ESize, ETextAlign} from '../../components/form/Text/model';
 import {LayoutPublic} from '../../components/Layout';
-import {Colors} from '../../res';
+import {Line} from '../../components/Line';
 import {translate} from '../../res/strings';
 import {StateApi} from '../../utils/Api';
-import {scale, verticalScale} from '../../utils/Scales';
+import {verticalScale} from '../../utils/Scales';
 import {useController} from './Controller';
 
 export default function() {
@@ -34,7 +34,7 @@ export default function() {
             <Text textAlign={ETextAlign.LEFT} size={ESize.L}>
               {translate('login.title')}
             </Text>
-            <View style={styles.line} />
+            <Line />
           </View>
           <View style={styles.subtitleContainer}>
             <Text textAlign={ETextAlign.LEFT} size={ESize.L}>
@@ -80,12 +80,6 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: 'center',
     alignItems: 'flex-start',
-  },
-  line: {
-    backgroundColor: Colors.SECONDARY,
-    height: verticalScale(2),
-    width: scale(50),
-    marginTop: verticalScale(5),
   },
   subtitleContainer: {
     flex: 1,
