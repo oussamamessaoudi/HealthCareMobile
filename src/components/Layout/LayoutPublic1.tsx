@@ -20,10 +20,12 @@ interface ILayoutPublic {
     goBack: () => any;
   };
   canGoBack: boolean;
+  containerStyle?: object;
 }
 
 export const LayoutPublic = ({
   children,
+  containerStyle,
   canGoBack,
   navigation,
 }: ILayoutPublic) => {
@@ -45,18 +47,19 @@ export const LayoutPublic = ({
         <Image source={Images.logo} style={styles.logo} />
         <Text style={styles.appName}>HEALTH{'\n'}CARE</Text>
       </View>
-      <View style={styles.container}>{children}</View>
+      <View style={containerStyle || styles.container}>{children}</View>
     </SafeAreaView>
   );
 };
 
-const WrapperLayoutPublic = ({children, navigation}: any) => {
+const WrapperLayoutPublic = ({children, navigation, containerStyle}: any) => {
   const index = navigation!.dangerouslyGetParent().state.index;
   return (
     <LayoutPublic
       canGoBack={index > 0}
       children={children}
       navigation={navigation}
+      containerStyle={containerStyle}
     />
   );
 };

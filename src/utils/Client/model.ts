@@ -16,7 +16,7 @@ export class HttpResponse<T> {
 export class Api {
   requestOffline<T>(data: T) {
     return new Promise<HttpResponse<T>>(resolve =>
-      setTimeout(() => resolve(new HttpResponse<T>(data, 200)), 1000),
+      setTimeout(() => resolve(new HttpResponse<T>(data, 200)), 3000),
     );
   }
 }

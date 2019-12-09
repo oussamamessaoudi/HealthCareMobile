@@ -9056,6 +9056,11 @@ react-native-size-matters@^0.2.1:
   resolved "https://registry.yarnpkg.com/react-native-size-matters/-/react-native-size-matters-0.2.1.tgz#036a139eb4257682a412cf33bb2089726fe636f3"
   integrity sha512-u3XlYOt15SRjZtFdwiVIejp/X+gHj/uL6DcStNh4R8/7wGr2WkzpaG4C9YYPuZTJ0SwBJOCI4E1yCdQAOIi6fA==
 
+react-native-skeleton-placeholder@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-skeleton-placeholder/-/react-native-skeleton-placeholder-1.0.3.tgz#bcad48066cd046d8bed73c60446b9bb1de312111"
+  integrity sha512-fuuGWUz7e2TTl2p4QFNmWqo60QuS/E4CqXK54UQ2aoasAIWBKkpG4SE9aOaNVveovd1sfJMpXpcKMCNvqrx9XA==
+
 react-native-snap-carousel@^3.8.4:
   version "3.8.4"
   resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.8.4.tgz#4c749c6a714d46ed82de527233850cb5da41bc62"
