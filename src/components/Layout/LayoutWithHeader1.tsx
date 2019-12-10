@@ -5,13 +5,15 @@ import {IProps} from './model';
 
 const LayoutPublic = ({children}: IProps) => {
   return (
-    <SafeAreaView style={styles.root}>
+    <>
       <StatusBar
-        barStyle='light-content'
+        barStyle="light-content"
         backgroundColor={Colors.PRIMARY_DARK}
       />
-      <View style={styles.container}>{children}</View>
-    </SafeAreaView>
+      <SafeAreaView style={styles.root}>
+        <View style={styles.container}>{children}</View>
+      </SafeAreaView>
+    </>
   );
 };
 

@@ -1,23 +1,24 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {BarChart} from '../../components/Chart';
+import {View, StyleSheet} from 'react-native';
+import {Tabs} from './index';
 import {LayoutWithHeader} from '../../components/Layout';
 
 export default function() {
+  const tabs: any = Tabs();
   return (
     <LayoutWithHeader>
-        <BarChart containerStyle={styles.chart}/>
-        <View style={{flex: 1, backgroundColor: 'gray'}}/>
+      <View style={styles.tabContainer}>{React.createElement(tabs)}</View>
+      <View style={styles.latestOperation} />
     </LayoutWithHeader>
   );
 }
+
 const styles = StyleSheet.create({
-  container: {
+  tabContainer: {
     flex: 1,
-    backgroundColor: 'red',
   },
-  chart: {
+  latestOperation: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: 'gray',
   },
 });

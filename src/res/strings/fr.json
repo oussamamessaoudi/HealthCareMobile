@@ -1,5 +1,9 @@
 {
   "hello": "Salut le Monde!",
+  "headers" : {
+    "gains" : "GAINS ET DÉPENSES",
+    "balance": "SOLDE"
+  },
   "marketing": {
     "navigate": "ACCÈS À VOTRE COMPTE"
   },
