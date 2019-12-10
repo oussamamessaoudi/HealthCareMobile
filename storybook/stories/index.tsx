@@ -9,3 +9,5 @@ require('./components/Forms/Input/Input1');
 require('./components/Layout/PublicLayout1');
 require('./components/Carousel/Carousel1');
 require('./components/Alert/Alert1');
+require('./components/Chart/BarChart1');
+require('./components/Chart/LineChart1');

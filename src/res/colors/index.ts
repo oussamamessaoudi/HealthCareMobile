@@ -14,6 +14,8 @@ const colors = {
   SECONDARY_TEXT: '#000000',
   SECONDARY_LIGHT: '#ff6090',
   SECONDARY_DARK: '#b0003a',
+  YELLOW: 'yellow',
+
 };
 
 export default colors;

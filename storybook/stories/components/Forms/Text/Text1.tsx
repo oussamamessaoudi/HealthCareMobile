@@ -1,9 +1,9 @@
 import {storiesOf} from '@storybook/react-native';
 import React from 'react';
 
+import {ESize, ETextType} from '../../../../../src/components/form/Text/model';
 import Text1 from '../../../../../src/components/form/Text/Text1';
 import {LayoutWithHeader} from '../../../../../src/components/Layout';
-import {ESize, ETextType} from '../../../../../src/components/form/Text/model';
 
 storiesOf('Text1').add('default', () => (
   <LayoutWithHeader>

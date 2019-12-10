@@ -22,6 +22,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* HealthCareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HealthCareTests.m */; };
 		3B0C472745AB40CABCB233AB /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73369FADD22446AC923F2BDB /* FontAwesome5_Regular.ttf */; };
 		410B2B925AAF4B83B4178749 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9897C8E0F4B1489B871F673F /* Feather.ttf */; };
+		5933DF78239F8C4300474F8E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5933DF77239F8C4300474F8E /* File.swift */; };
 		60411F27022E4D32845F927A /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA76F0CB11874AC0B26466AB /* SimpleLineIcons.ttf */; };
 		6443609155344D5E84C5EDC0 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE913EDF0E240A8AAA1F512 /* EvilIcons.ttf */; };
 		6D93901F5D6D4BD08E3BB433 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3D75A7F89D74DBAA80E00A5 /* Octicons.ttf */; };
@@ -84,6 +85,8 @@
 		4DD83A7197DE412F997ABB8F /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		53F20B9C5F4C412495FB9E58 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		549ABE87692621EDFDE9EFE7 /* Pods-HealthCare-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCare-tvOS.release.xcconfig"; path = "Target Support Files/Pods-HealthCare-tvOS/Pods-HealthCare-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		5933DF76239F8C4200474F8E /* HealthCare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HealthCare-Bridging-Header.h"; sourceTree = "<group>"; };
+		5933DF77239F8C4300474F8E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		6870240771A84124A1BA9EA6 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		73369FADD22446AC923F2BDB /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		7BF27EE5FAE9E6D561A060FB /* Pods-HealthCareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareTests.debug.xcconfig"; path = "Target Support Files/Pods-HealthCareTests/Pods-HealthCareTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +240,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				5933DF77239F8C4300474F8E /* File.swift */,
 				13B07FAE1A68108700A75B9A /* HealthCare */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* HealthCareTests */,
@@ -244,6 +248,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				73E54748D99E316F7F29AF18 /* Pods */,
 				3659B5E889D34C87B97FD7AE /* Resources */,
+				5933DF76239F8C4200474F8E /* HealthCare-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = KU2PFP4Y52;
+						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -672,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				5933DF78239F8C4300474F8E /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,6 +732,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BF27EE5FAE9E6D561A060FB /* Pods-HealthCareTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = KU2PFP4Y52;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -749,6 +757,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E308E608397D78223CDFB37A /* Pods-HealthCareTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = KU2PFP4Y52;
@@ -771,6 +780,7 @@
 			baseConfigurationReference = B8D1180DD9E2D85106FD2F16 /* Pods-HealthCare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = KU2PFP4Y52;
@@ -784,6 +794,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.oussamamessaoudi.HealthCare;
 				PRODUCT_NAME = HealthCare;
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthCare-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -794,6 +807,7 @@
 			baseConfigurationReference = AA6158CEC3CE1FBCD2774442 /* Pods-HealthCare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -809,6 +823,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.oussamamessaoudi.HealthCare;
 				PRODUCT_NAME = HealthCare;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HealthCare-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
