@@ -1,85 +1,68 @@
 import React from 'react';
-import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {ButtonMore} from '../../commons/features/ButtonMore';
 import {Colors} from '../../res';
 import {scale} from '../../utils/Scales';
-
-console.disableYellowBox = true;
+import {Dashboard} from '../Dashboard';
+import Operations from '../Operations';
+import Stock from '../Stock';
+import Params from '../Params';
 
 const bottomTabNavigator = createBottomTabNavigator(
   {
-    Album: {
-      screen: Album,
+    Dashboard: {
+      screen: Dashboard,
       navigationOptions: {
         tabBarIcon: ({tintColor}: any) => (
-          <Icon name='dashboard' size={scale(25)} color={tintColor}/>
+          <Icon name="dashboard" size={scale(25)} color={tintColor} />
         ),
       },
     },
-    Library: {
-      screen: Library,
+    Operations: {
+      screen: Operations,
       navigationOptions: {
         tabBarIcon: ({tintColor}: any) => (
-          <Icon name='exchange' size={25} color={tintColor}/>
+          <Icon name="exchange" size={25} color={tintColor} />
         ),
       },
     },
     Adding: {
       screen: () => null, // Empty screen
       navigationOptions: () => ({
-        tabBarIcon: <ButtonMore/>, // Plus button component
+        tabBarIcon: <ButtonMore />, // Plus button component
       }),
     },
-    History: {
-      screen: History,
+    Stock: {
+      screen: Stock,
       navigationOptions: {
         tabBarIcon: ({tintColor}: any) => (
-          <Icon name='terminal' size={25} color={tintColor}/>
+          <Icon name="terminal" size={25} color={tintColor} />
         ),
       },
     },
     Params: {
-      screen: History,
+      screen: Params,
       navigationOptions: {
         tabBarIcon: ({tintColor}: any) => (
-          <Icon name='user' size={25} color={tintColor}/>
+          <Icon name="user" size={25} color={tintColor} />
         ),
       },
     },
-
   },
   {
     tabBarOptions: {
       showLabel: false, // hide labels
-      activeTintColor: Colors.PRIMARY_TEXT, // active icon color
-      inactiveTintColor: '#586589',  // inactive icon color
+      activeTintColor: Colors.SECONDARY, // active icon color
+      inactiveTintColor: '#586589', // inactive icon color
       style: {
-        backgroundColor: 'rgba(255, 255, 255, 0.1)', // TabBar background
+        backgroundColor: Colors.PRIMARY, // TabBar background
       },
     },
+    lazy: true,
   },
 );
 const NestedContainer = createAppContainer(bottomTabNavigator);
 
-export default () => <NestedContainer/>;
-
-function Album() {
-  return <View>
-    <Text style={{color: 'white'}}>Album</Text>
-  </View>;
-}
-
-function Library() {
-  return <View>
-    <Text style={{color: 'white'}}>Library</Text>
-  </View>;
-}
-
-function History() {
-  return <View>
-    <Text style={{color: 'white'}}>History</Text>
-  </View>;
-}
+export default NestedContainer;

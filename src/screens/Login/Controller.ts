@@ -1,5 +1,5 @@
 import {useCallback, useContext, useState} from 'react';
-import {IResponse, StateApi} from '../../utils/Api';
+import {IResponse, StateApi} from '../../utils/Client/Api';
 import {ControllerContext} from '../../utils/Context';
 
 interface IUser {

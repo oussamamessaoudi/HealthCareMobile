@@ -6,7 +6,7 @@ import BarChart1 from '../../../../src/components/Chart/BarChart1';
 import {verticalScale} from '../../../../src/utils/Scales';
 
 storiesOf('BarChart1').add('default', () => (
-  <SafeAreaView style={{height: verticalScale(300)}} >
-    <BarChart1 containerStyle={{flex: 1}}/>
+  <SafeAreaView style={{height: verticalScale(300)}}>
+    <BarChart1 data={{}} />
   </SafeAreaView>
 ));

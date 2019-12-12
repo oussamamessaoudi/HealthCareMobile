@@ -1,6 +1,6 @@
 import {useCallback, useContext, useEffect, useState} from 'react';
 import {IEntry} from '../../components/Carousel/Model';
-import {IResponse, StateApi} from '../../utils/Api';
+import {IResponse, StateApi} from '../../utils/Client/Api';
 import {ControllerContext} from '../../utils/Context';
 
 export function useController() {

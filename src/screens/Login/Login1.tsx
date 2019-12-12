@@ -7,7 +7,7 @@ import {ESize, ETextAlign} from '../../components/form/Text/model';
 import {LayoutPublic} from '../../components/Layout';
 import {Line} from '../../components/Line';
 import {translate} from '../../res/strings';
-import {StateApi} from '../../utils/Api';
+import {StateApi} from '../../utils/Client/Api';
 import {verticalScale} from '../../utils/Scales';
 import {useController} from './Controller';
 

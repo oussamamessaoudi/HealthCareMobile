@@ -4,7 +4,7 @@ import {Carousel} from '../../components/Carousel';
 import Button1 from '../../components/form/Button/Button1';
 import {LayoutPublic} from '../../components/Layout';
 import {translate} from '../../res/strings';
-import {StateApi} from '../../utils/Api';
+import {StateApi} from '../../utils/Client/Api';
 import {scale} from '../../utils/Scales';
 import {useController} from './Controller';
 import {Loading} from './index';
